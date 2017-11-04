@@ -1,4 +1,4 @@
 # Graphics And Animation
-Wrapper costum control that once clicke open a display a new window with a list of controls that "Got  Hit" by mouse click.
+Basic fun animation and graphics i created for children applicaiton
 
 ![Screen Shot](GraphicsAndAnimationScreenshot.gif)
