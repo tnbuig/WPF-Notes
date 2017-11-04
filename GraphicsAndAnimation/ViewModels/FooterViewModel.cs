@@ -4,7 +4,7 @@
     {
         public FooterViewModel()
         {
-            Instruction = "Hi There,\n My name is Lady BaBa and i would like to Learn German. \n Would you like to help me?";
+            Instruction = " Hi There,\n My name is Lady BaBa and i am studing English.  \n Would you like to join me?";
         }
 
         public string Instruction { get; private set; }
