@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="GraphicsAndAnimation.Views.HeaderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="90" d:DesignWidth="525">
+    <Grid>
+        <TextBlock Foreground="SteelBlue">2/11/2014 Oran Gerbvovski version 3 of self teaching application for desktop</TextBlock>
+        <StackPanel Margin="10,26,0,0">
+            <TextBlock TextAlignment="Center" FontSize="28" FontFamily="David">"you teach best what you most need to learn"</TextBlock>
+            <TextBlock TextAlignment="Center" FontSize="18" FontFamily="David">(Richard Bach)</TextBlock>
+        </StackPanel>
+        <Canvas>
+            <Canvas.Triggers>
+                <EventTrigger RoutedEvent="Canvas.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard BeginTime="0" Duration="Forever">
+                                <DoubleAnimation Storyboard.TargetName="e1" Storyboard.TargetProperty="(Canvas.Left)" From="-100" To="700" AutoReverse="false" BeginTime="0:0:0" Duration="0:0:35" RepeatBehavior="Forever"/>
+                                <DoubleAnimation Storyboard.TargetName="e1" Storyboard.TargetProperty="(Canvas.Top)" From="0" To="25" AutoReverse="True" BeginTime="0:0:0" Duration="0:0:10" RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Canvas.Triggers>
+
+            <Viewbox Name="e1" Margin="0,5,97,190" Height="40" >
+                <Viewbox.Triggers>
+                    <EventTrigger RoutedEvent="Viewbox.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard BeginTime="0" Duration="Forever">
+                                    <DoubleAnimation Storyboard.TargetName="cloudGrid" Storyboard.TargetProperty="(Grid.Height)" From="68" To="89" AutoReverse="true" BeginTime="0:0:0" Duration="0:0:35" RepeatBehavior="Forever"/>
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Viewbox.Triggers>
+                <Grid Name="cloudGrid" Height="75" Width="195" Opacity="0.7" Background="Transparent">
+                    <Ellipse Fill="#FFFFA500" Margin="60,19,33,12"/>
+                    <Ellipse Fill="#FFFFA500" Margin="92,8,17,16"/>
+                    <Ellipse Fill="#FFFFA500" Margin="118,29,25,6"/>
+                    <Ellipse Fill="#FFFFA500" Margin="88,45,55,0"/>
+                    <Ellipse Fill="#FFFFA500" Margin="92,0,51,35"/>
+                    <Ellipse Fill="#FFFFA500" Margin="143,19,0,26"/>
+                    <Ellipse Fill="#FFFFC000" Margin="9,31,167,36"/>
+                    <Ellipse Fill="#FFFFC300" Margin="19,58,161,11"/>
+                    <Ellipse Fill="#FFFFC500" Margin="19,31,151,37"/>
+                    <Ellipse Fill="#FFFFD700" Margin="29,55,151,11"/>
+                    <Ellipse Fill="#FFFFC500" Margin="9,25,163,40"/>
+                    <Ellipse Fill="#FFFFC500" Margin="0,29,179,36"/>
+                    <Ellipse Fill="#FFFFD500" Margin="36,60,135,9" />
+                    <Ellipse Fill="#FFFFC500" Margin="25,60,142,4"/>
+                </Grid>
+            </Viewbox>
+
+        </Canvas>
+
+    </Grid>
+</UserControl>
+

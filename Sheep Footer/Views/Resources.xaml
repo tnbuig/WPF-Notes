@@ -1,0 +1,169 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:GraphicsAndAnimation.Views">
+
+    <Viewbox x:Key="Sheep" Stretch="Fill" Margin="12,0,58,10" Focusable="False">
+        <Grid Height="279" Width="984" Focusable="False">
+
+            <Polygon Points="10,100 70,10 90,180" Stroke="Transparent"
+    				Fill="White" RenderTransformOrigin="0.5,0.5" Margin="241,90,635,11" >
+                <Polygon.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-273.847"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Polygon.RenderTransform>
+            </Polygon>
+            <Ellipse Stroke="Black" StrokeThickness="2" Fill="#FFCDEFAB" RenderTransformOrigin="0.645,0.78" Margin="0,78,946,96">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="1.701"/>
+                        <RotateTransform Angle="-135.344"/>
+                        <TranslateTransform X="-8.286" Y="-0.015"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse  Stroke="Black" StrokeThickness="2" Fill="#FCFFCFFC" RenderTransformOrigin="0.645,0.78" Margin="142,40,804,134">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="-38.239"/>
+                        <TranslateTransform X="-7.151" Y="-2.166"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Stroke="Black" Opacity="0.4" StrokeThickness="2" Fill="Black" RenderTransformOrigin="0.645,0.78" Margin="34,110,935,122">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="1.701"/>
+                        <RotateTransform Angle="-135.344"/>
+                        <TranslateTransform X="-8.286" Y="-0.015"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Stroke="Black" Opacity="0.4" StrokeThickness="2" Fill="Black" RenderTransformOrigin="0.645,0.78" Margin="164,100,805,132">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="1.701"/>
+                        <RotateTransform Angle="-39.879"/>
+                        <TranslateTransform X="-8.286" Y="-0.015"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Stroke="SteelBlue" StrokeThickness="2" Fill="#FFFFA500" RenderTransformOrigin="0.5,0.5" Margin="40,76,816,0">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="5.575"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Stroke="Black" StrokeThickness="1" Fill="Transparent" RenderTransformOrigin="0.5,0.5" Margin="49,137,827,10">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="5.575"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse  Fill="#FFFFA500" RenderTransformOrigin="0.5,0.5" Margin="65,121,842,37">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="89.537"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Stroke="Black" Fill="White" RenderTransformOrigin="0.353,0.458" Margin="103,85,819,111">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="6.953"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Fill="DeepSkyBlue" RenderTransformOrigin="0.353,0.458" Margin="133,106,838,153">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="17.207"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Stroke="Black" Fill="White" RenderTransformOrigin="0.353,0.458" Margin="61,82,870,126">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="6.953"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Fill="DeepSkyBlue" RenderTransformOrigin="0.353,0.458" Margin="83,101,890,160">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="17.207"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Fill="Black" RenderTransformOrigin="-0.143,2.786" Margin="85,251,873,15"/>
+            <Ellipse Fill="White" RenderTransformOrigin="1.073,-0.068" Margin="138,106,839,162">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="17.207"/>
+                        <TranslateTransform X="1.488" Y="1.75"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Fill="White" RenderTransformOrigin="1.073,-0.068" Margin="87,100,892,171">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="17.207"/>
+                        <TranslateTransform X="1.488" Y="1.75"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Border CornerRadius="80" Background="White" Margin="220,0,-41,69">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="MidnightBlue" FontSize="30"   Text="{Binding Instruction}" FontFamily="Kristen ITC"/>
+            </Border>
+
+
+        </Grid>
+    </Viewbox>
+    
+    <LinearGradientBrush x:Key="FotterBackgroundBrush"  StartPoint="1,0">
+        <GradientStop Color="#337AD2F8" Offset="0.1"/>
+        <GradientStop Color="#337AD2F8" Offset="0.2"/>
+        <GradientStop Color="#FF5982AF" Offset="0.34"/>
+        <GradientStop Color="#FF000000" Offset="0.35"/>
+        <GradientStop Color="Green"  Offset="0.36"/>
+        <GradientStop Color="ForestGreen"  Offset="0.37"/>
+        <GradientStop Color="#FF50AF11"  Offset="0.39"/>
+        <GradientStop Color="LawnGreen"  Offset="0.8"/>
+    </LinearGradientBrush>
+
+</ResourceDictionary>
