@@ -6,7 +6,7 @@
 
     <!--#region NotificationTemplateSelector-->
     <DataTemplate x:Key="InformationNotificationTemplate" DataType="x:Type model:UserNotification">
-        <Grid Margin="3">
+        <Grid Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
@@ -24,10 +24,8 @@
                 <TextBlock
                     Grid.Row="0"
                     Foreground="{StaticResource InformationColor}"
-                    Style="{StaticResource NotificaitonCaptionTextBlockStyle}">
-                    General Information
-                </TextBlock>
-                <TextBlock Grid.Row="1" TextWrapping="Wrap">An information message is information displayed when an condition occurs, messages are often displayed using dialog boxes.</TextBlock>
+                    Style="{StaticResource NotificaitonCaptionTextBlockStyle}" Text="{Binding Caption}"/>
+                <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="{Binding Message}" />
             </Grid>
             <Border
                 Grid.Column="2"
@@ -38,7 +36,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="ErrorNotificationTemplate" DataType="x:Type model:UserNotification">
-        <Grid Margin="3">
+        <Grid Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
@@ -56,10 +54,10 @@
                 <TextBlock
                     Grid.Row="0"
                     Foreground="{StaticResource ErrorColor}"
-                    Style="{StaticResource NotificaitonCaptionTextBlockStyle}">
-                    Error With something
-                </TextBlock>
-                <TextBlock Grid.Row="1" TextWrapping="Wrap">An error message is information displayed when an unexpected condition occurs, usually on a computer or other device. On modern operating systems with graphical user interfaces.</TextBlock>
+                    Style="{StaticResource NotificaitonCaptionTextBlockStyle}"
+                    Text="{Binding Caption}"/>
+
+                <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="{Binding Message}"/>
             </Grid>
             <Border
                 Grid.Column="2"
@@ -70,7 +68,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="WarningNotificationTemplate" DataType="x:Type model:UserNotification">
-        <Grid Margin="3">
+        <Grid Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />

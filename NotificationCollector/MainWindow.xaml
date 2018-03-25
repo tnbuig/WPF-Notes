@@ -12,9 +12,9 @@
     <Grid >
         <StackPanel>
             <Button Click="Button_Click_1">1</Button>
-            <Button>2</Button>
-            <Button>3</Button>
-            <Button>4</Button>
+            <Button Click="Button_Click_2">2</Button>
+            <Button Click="Button_Click_3">3</Button>
+            <Button Click="Button_Click_4">4</Button>
         </StackPanel>
         
     </Grid>

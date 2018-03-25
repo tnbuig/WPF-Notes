@@ -70,9 +70,9 @@
                     Background="Transparent">
                     <StatusBar.Style>
                         <Style TargetType="StatusBar">
-                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Setter Property="Visibility" Value="Visible" />
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding UserNotifications.Count}" Value="0">
+                                <DataTrigger Binding="{Binding UserNotifications.Count}" Value="1">
                                     <Setter Property="Visibility" Value="Collapsed" />
                                 </DataTrigger>
                             </Style.Triggers>
