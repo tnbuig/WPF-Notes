@@ -1,0 +1,107 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:draw="clr-namespace:System.Drawing;assembly=System.Drawing"
+    xmlns:local="clr-namespace:NotificationCollector.Resources">
+
+    <!--#region NotificationTemplateSelector-->
+    <DataTemplate x:Key="InformationNotificationTemplate" DataType="x:Type model:UserNotification">
+        <Grid Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="0"
+                VerticalAlignment="Top"
+                Source="{Binding Source={x:Static draw:SystemIcons.Information}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
+            <Grid Grid.Column="1" Margin="10,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Foreground="{StaticResource InformationColor}"
+                    Style="{StaticResource NotificaitonCaptionTextBlockStyle}">
+                    General Information
+                </TextBlock>
+                <TextBlock Grid.Row="1" TextWrapping="Wrap">An information message is information displayed when an condition occurs, messages are often displayed using dialog boxes.</TextBlock>
+            </Grid>
+            <Border
+                Grid.Column="2"
+                Width="2"
+                Margin="4,0,4,0"
+                Background="{StaticResource InformationColor}" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ErrorNotificationTemplate" DataType="x:Type model:UserNotification">
+        <Grid Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="0"
+                VerticalAlignment="Top"
+                Source="{Binding Source={x:Static draw:SystemIcons.Error}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
+            <Grid Grid.Column="1" Margin="10,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Foreground="{StaticResource ErrorColor}"
+                    Style="{StaticResource NotificaitonCaptionTextBlockStyle}">
+                    Error With something
+                </TextBlock>
+                <TextBlock Grid.Row="1" TextWrapping="Wrap">An error message is information displayed when an unexpected condition occurs, usually on a computer or other device. On modern operating systems with graphical user interfaces.</TextBlock>
+            </Grid>
+            <Border
+                Grid.Column="2"
+                Width="2"
+                Margin="4,0,4,0"
+                Background="{StaticResource ErrorColor}" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="WarningNotificationTemplate" DataType="x:Type model:UserNotification">
+        <Grid Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="0"
+                VerticalAlignment="Top"
+                Source="{Binding Source={x:Static draw:SystemIcons.Warning}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
+            <Grid Grid.Column="1" Margin="10,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Foreground="{StaticResource WarningColor}"
+                    Style="{StaticResource NotificaitonCaptionTextBlockStyle}">
+                    Low Battery
+                </TextBlock>
+                <TextBlock
+                    Grid.Row="1"
+                    Text="{Binding Message}"
+                    TextWrapping="Wrap" />
+            </Grid>
+            <Border
+                Grid.Column="2"
+                Width="2"
+                Margin="4,0,4,0"
+                Background="{StaticResource WarningColor}" />
+        </Grid>
+    </DataTemplate>
+    <!--  #end region NotificationTemplateSelector  -->
+</ResourceDictionary>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NotificationCollector.Services;
+using NotificationCollector.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,11 @@ namespace NotificationCollector
     /// </summary>
     public partial class CustomMessageBox : Window
     {
-        public CustomMessageBox()
+        public CustomMessageBox(IUserNotificationProvider userNotificationService)
         {
             InitializeComponent();
+            var customMessageBoxViewModel = new CustomMessageBoxViewModel(userNotificationService);
+            this.DataContext = customMessageBoxViewModel;
         }
     }
 }

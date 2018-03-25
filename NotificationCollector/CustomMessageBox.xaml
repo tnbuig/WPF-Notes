@@ -1,143 +1,38 @@
-﻿<Window x:Class="NotificationCollector.CustomMessageBox"
-       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window
+    x:Class="NotificationCollector.CustomMessageBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:draw="clr-namespace:System.Drawing;assembly=System.Drawing"
-    xmlns:local="clr-namespace:NotificationCollector"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:designTimeData="clr-namespace:NotificationCollector.DesignTimeData"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:utils="clr-namespace:NotificationCollector.Utilities"
+    Title="{Binding MainCaption}"
     Width="525"
     Height="340"
+    MinWidth="154"
+    MinHeight="155"
+    MaxWidth="570"
     VerticalAlignment="Center"
+    d:DataContext="{d:DesignInstance {x:Type designTimeData:MockCustomMessageBoxViewModel},
+                                     IsDesignTimeCreatable=True}"
+    DataContext="{Binding CustomMessageBoxViewModel}"
+    ResizeMode="NoResize"
+    ShowInTaskbar="False"
+    SizeToContent="WidthAndHeight"
+    TextOptions.TextFormattingMode="Display"
+    TextOptions.TextRenderingMode="ClearType"
+    Topmost="True"
+    UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen"
     WindowStyle="ToolWindow"
-    ShowInTaskbar="False" Topmost="True"
-        ResizeMode="NoResize" SizeToContent="WidthAndHeight"
-        TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType" UseLayoutRounding="True"
-        Title="" MinHeight="155" MaxWidth="570" MinWidth="154"
-    mc:Ignorable="d" >
+    mc:Ignorable="d">
     <Window.Resources>
-        <local:IconToImageSourceConverter x:Key="IconToImageSourceConverter" />
-        <ControlTemplate x:Key="DisplayInfoTemplate" TargetType="ListBoxItem">
-            <Grid Margin="3">
-                <Border
-                    Padding="3"
-                    Background="White"
-                    BorderThickness="1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Image VerticalAlignment="Top" Grid.Column="0" Source="{Binding Source={x:Static draw:SystemIcons.Information}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
-                        <Grid Grid.Column="1" Margin="10,0,0,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <TextBlock
-                                Grid.Row="0"
-                                FontSize="13"
-                                Foreground="#3E66CD" FontWeight="SemiBold">
-                                General Information
-                            </TextBlock>
-                            <TextBlock Grid.Row="1" TextWrapping="Wrap">An information message is information displayed when an condition occurs, messages are often displayed using dialog boxes.</TextBlock>
-                        </Grid>
-                        <Border
-                            Grid.Column="2"
-                            Width="2"
-                            Margin="0,0,4,0"
-                            Background="#3E66CD" />
-                    </Grid>
-                </Border>
-            </Grid>
-        </ControlTemplate>
-        <ControlTemplate x:Key="DisplayErrorTemplate" TargetType="ListBoxItem">
-            <Grid Margin="3">
-                <Border
-                    Padding="3"
-                    Background="White"
-                    BorderThickness="1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Image VerticalAlignment="Top" Grid.Column="0" Source="{Binding Source={x:Static draw:SystemIcons.Error}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
-                        <Grid Grid.Column="1" Margin="10,0,0,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <TextBlock
-                                Grid.Row="0"
-                                FontSize="13"
-                                Foreground="#B20808" FontWeight="SemiBold">
-                                Error With something
-                            </TextBlock>
-                            <TextBlock Grid.Row="1" TextWrapping="Wrap">An error message is information displayed when an unexpected condition occurs, usually on a computer or other device. On modern operating systems with graphical user interfaces.</TextBlock>
-                        </Grid>
-                        <Border
-                            Grid.Column="2"
-                            Width="2"
-                            Margin="0,0,4,0"
-                            Background="#B20808" />
-                    </Grid>
-                </Border>
-            </Grid>
-        </ControlTemplate>
-        <ControlTemplate x:Key="DisplayWarningTemplate" TargetType="ListBoxItem">
-            <Grid Margin="3">
-                <Border
-                    Padding="3"
-                    Background="White"
-                    BorderThickness="1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Image VerticalAlignment="Top"  Grid.Column="0" Source="{Binding Source={x:Static draw:SystemIcons.Warning}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
-                        <Grid Grid.Column="1" Margin="10,0,0,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <TextBlock
-                                Grid.Row="0"
-                                FontSize="13"
-                                Foreground="#EFC500" FontWeight="SemiBold">
-                                Low Battery
-                            </TextBlock>
-                            <TextBlock Grid.Row="1" TextWrapping="Wrap">alerts tA warning message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a conditionalerts tA warning message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a conditionalerts tA warning message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a conditionalerts tA warning message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a conditionalerts tA warning message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a conditionalerts tA warning message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a conditionalerts tA warning message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition</TextBlock>
-                        </Grid>
-                        <Border
-                            Grid.Column="2"
-                            Width="2"
-                            Margin="0,0,4,0"
-                            Background="#EFC500" />
-                    </Grid>
-                </Border>
-            </Grid>
-        </ControlTemplate>
-        <Style x:Key="ErrorTemplate" TargetType="ListBoxItem">
-            <Style.Setters>
-                <Setter Property="Template" Value="{StaticResource DisplayErrorTemplate}" />
-            </Style.Setters>
-        </Style>
-        <Style x:Key="WarningTemplate" TargetType="ListBoxItem">
-            <Style.Setters>
-                <Setter Property="Template" Value="{StaticResource DisplayWarningTemplate}" />
-            </Style.Setters>
-        </Style>
-        <Style x:Key="InfoTemplate" TargetType="ListBoxItem">
-            <Style.Setters>
-                <Setter Property="Template" Value="{StaticResource DisplayInfoTemplate}" />
-            </Style.Setters>
-        </Style>
-
+        <utils:NotificationTemplateSelector
+            x:Key="NotificationTemplateSelector"
+            ErrorNotificationTemplate="{StaticResource ErrorNotificationTemplate}"
+            InformationNotificationTemplate="{StaticResource InformationNotificationTemplate}"
+            WarningNotificationTemplate="{StaticResource WarningNotificationTemplate}" />
     </Window.Resources>
     <Grid VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
@@ -146,63 +41,90 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Background="LightGray">
-            <ListBox BorderBrush="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False">
-                <ListBoxItem Style="{StaticResource ErrorTemplate}" />
-                <ListBoxItem Style="{StaticResource ErrorTemplate}" />
-                <ListBoxItem Style="{StaticResource WarningTemplate}" />
-                <ListBoxItem Style="{StaticResource InfoTemplate}" />
-            </ListBox>
+            <ListBox
+                HorizontalContentAlignment="Stretch"
+                BorderThickness="0"
+                ItemTemplateSelector="{StaticResource NotificationTemplateSelector}"
+                ItemsSource="{Binding UserNotifications}"
+                ScrollViewer.CanContentScroll="False"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
         </Border>
-        <Border Grid.Row="1" BorderBrush="Transparent" BorderThickness="0" Background="WhiteSmoke">
+        <Border
+            Grid.Row="1"
+            Background="WhiteSmoke"
+            BorderBrush="Transparent"
+            BorderThickness="0">
             <DockPanel>
-                <Button DockPanel.Dock="Right"
-                Width="70"
-                Margin="0,0,20,0"
-                Padding="10,2,10,2"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center">
+                <Button
+                    Width="70"
+                    Margin="0,0,20,0"
+                    Padding="10,2,10,2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Right">
                     OK
                 </Button>
-                <StatusBar Margin="20,0,0,0" VerticalAlignment="Center">
-                    <StatusBarItem>
-                        <Border Padding="4,0,4,0" BorderThickness="1" BorderBrush="#EFC500">
+                <StatusBar
+                    Margin="20,0,0,0"
+                    VerticalAlignment="Center"
+                    Background="Transparent">
+                    <StatusBar.Style>
+                        <Style TargetType="StatusBar">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding UserNotifications.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StatusBar.Style>
+                    <StatusBarItem Visibility="{Binding InfoCount, Converter={StaticResource IntToVisibilityConverter}}">
+                        <Border
+                            Padding="4,0,4,0"
+                            BorderBrush="{StaticResource InformationColor}"
+                            BorderThickness="1">
                             <StackPanel Orientation="Horizontal">
                                 <Image
-                            Grid.Column="0"
-                            Height="15"
-                            Margin="2,0,2,0"
-                            Source="{Binding Source={x:Static draw:SystemIcons.Warning}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
-                                <TextBlock Margin="2,0,2,0">2</TextBlock>
+                                    Grid.Column="0"
+                                    Height="15"
+                                    Margin="2,0,2,0"
+                                    Source="{Binding Source={x:Static draw:SystemIcons.Information}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
+                                <TextBlock Margin="2,0,2,0" Text="{Binding InfoCount}" />
                             </StackPanel>
                         </Border>
                     </StatusBarItem>
-                    <StatusBarItem>
-                        <Border Padding="4,0,4,0" BorderThickness="1" BorderBrush="#B20808">
+                    <StatusBarItem Visibility="{Binding WarningCount, Converter={StaticResource IntToVisibilityConverter}}">
+                        <Border
+                            Padding="4,0,4,0"
+                            BorderBrush="{StaticResource WarningColor}"
+                            BorderThickness="1">
                             <StackPanel Orientation="Horizontal">
                                 <Image
-                            Grid.Column="0"
-                            Height="15"
-                            Margin="2,0,2,0"
-                            Source="{Binding Source={x:Static draw:SystemIcons.Error}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
-                                <TextBlock Margin="2,0,2,0">1</TextBlock>
+                                    Grid.Column="0"
+                                    Height="15"
+                                    Margin="2,0,2,0"
+                                    Source="{Binding Source={x:Static draw:SystemIcons.Warning}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
+                                <TextBlock Margin="2,0,2,0" Text="{Binding WarnCount}" />
                             </StackPanel>
                         </Border>
                     </StatusBarItem>
-                    <StatusBarItem Background="WhiteSmoke">
-                        <Border Padding="4,0,4,0" BorderThickness="1" BorderBrush="#3E66CD">
+                    <StatusBarItem Visibility="{Binding ErrorCount, Converter={StaticResource IntToVisibilityConverter}}">
+                        <Border
+                            Padding="4,0,4,0"
+                            BorderBrush="{StaticResource ErrorColor}"
+                            BorderThickness="1">
                             <StackPanel Orientation="Horizontal">
                                 <Image
-                            Grid.Column="0"
-                            Height="15"
-                            Margin="2,0,2,0"
-                            Source="{Binding Source={x:Static draw:SystemIcons.Information}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
-                                <TextBlock Margin="2,0,2,0">1</TextBlock>
+                                    Grid.Column="0"
+                                    Height="15"
+                                    Margin="2,0,2,0"
+                                    Source="{Binding Source={x:Static draw:SystemIcons.Error}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
+                                <TextBlock Margin="2,0,2,0" Text="{Binding ErrorCount}" />
                             </StackPanel>
                         </Border>
                     </StatusBarItem>
                 </StatusBar>
             </DockPanel>
         </Border>
-
     </Grid>
 </Window>
