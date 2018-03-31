@@ -1,5 +1,4 @@
-﻿using NotificationCollector.Services;
-using NotificationCollector.ViewModels;
+﻿using StructureMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,18 +13,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace NotificationCollector
+namespace NotificationCollector.Views
 {
     /// <summary>
-    /// Interaction logic for CustomMessageBox.xaml
+    /// Interaction logic for ShellView.xaml
     /// </summary>
-    public partial class CustomMessageBox : Window
+    public partial class ShellView : Window
     {
-        public CustomMessageBox(IUserNotificationProvider userNotificationService)
+        public ShellView()
         {
             InitializeComponent();
-            var customMessageBoxViewModel = new CustomMessageBoxViewModel(userNotificationService);
-            this.DataContext = customMessageBoxViewModel;
         }
     }
 }

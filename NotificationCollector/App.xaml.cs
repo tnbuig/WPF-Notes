@@ -13,5 +13,6 @@ namespace NotificationCollector
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }

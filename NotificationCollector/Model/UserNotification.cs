@@ -5,5 +5,6 @@
         public Severity Severity { get; set; }
         public string Message { get; set; }
         public string Caption { get; set; }
+        public bool Blocking { get; set; }
     }
 }

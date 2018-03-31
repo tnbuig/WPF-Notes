@@ -1,36 +1,42 @@
-﻿using NotificationCollector.Model;
-using System;
+﻿using Caliburn.Micro;
+using NotificationCollector.Model;
+using NotificationCollector.ViewModels;
 using System.Collections.Generic;
 
 namespace NotificationCollector.Services
 {
     internal class UserNotificationProvider : IUserNotificationProvider
     {
-        private List<UserNotification> userNotifications;
+        private IWindowManager _windowManager;
 
-        public UserNotificationProvider()
+        public UserNotificationProvider(IWindowManager windowManager)
         {
-            userNotifications = new List<UserNotification>();
+            this._windowManager = windowManager;
         }
 
-        public event EventHandler UserNotificationsChanged;
+        public bool IsNotificationVisible => false;
 
         public int AddUserNotifcation(UserNotification userNotification)
         {
-            userNotifications.Add(userNotification);
-
-            EventHandler handler = UserNotificationsChanged;
-            if (handler != null)
+            var windowsManager = IoC.Get<IWindowManager>();
+            var customMessageBoxViewModel = IoC.Get<CustomMessageBoxViewModel>();
+            
+            if (!customMessageBoxViewModel.IsActive)
             {
-                handler.Invoke(this, EventArgs.Empty);
+                customMessageBoxViewModel.UserNotifications.Clear();
+                if (!userNotification.Blocking)
+                {
+                    windowsManager.ShowWindow(customMessageBoxViewModel);
+                }
+                else
+                {
+                    windowsManager.ShowDialog(customMessageBoxViewModel);
+                }
             }
 
-            return userNotifications.Count;
-        }
-
-        public List<UserNotification> GetUserNotifications()
-        {
-            return userNotifications;
+            customMessageBoxViewModel.AddUserNotification(userNotification);
+            
+            return customMessageBoxViewModel.UserNotifications.Count;
         }
     }
 }
