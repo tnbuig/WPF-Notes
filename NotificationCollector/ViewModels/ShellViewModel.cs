@@ -1,7 +1,6 @@
 ﻿using Caliburn.Micro;
 using NotificationCollector.Model;
 using NotificationCollector.Services;
-using System.Collections.Generic;
 
 namespace NotificationCollector.ViewModels
 {
@@ -33,47 +32,43 @@ namespace NotificationCollector.ViewModels
 
         public void ShowAsInfo()
         {
-            if (string.IsNullOrWhiteSpace(MessageText))
-            {
-                this.MessageText = "Export to Excel Completed successfully";
-                this.CaptionText = "Export To Excel";
-            }
+            string messageText = "Export to Excel Completed successfully";
+            string captionText = "Export To Excel";
 
             this.Severity = Severity.Info;
-            this.AddNewNotification();
+            this.AddNewNotification(captionText, messageText);
         }
 
         public void ShowAsWarning()
         {
-            if (string.IsNullOrWhiteSpace(MessageText))
-            {
-                this.MessageText = "Change your battery or switch to outlet power immediately." +
-                    " Your computer has a low battery, so you should act immediately to keep from losing your work";
-                this.CaptionText = "Low Battery";
-            }
+            string messageText = "Change your battery or switch to outlet power immediately." +
+                " Your computer has a low battery, so you should act immediately to keep from losing your work";
+            string captionText = "Low Battery";
 
             this.Severity = Severity.Warning;
 
-            this.AddNewNotification();
+            this.AddNewNotification(captionText, messageText);
         }
 
         public void ShowAsError()
         {
-            if (string.IsNullOrWhiteSpace(MessageText))
-            {
-                this.MessageText = "Change your battery or switch to outlet power immediately." +
-                    " Your computer has a low battery, so you should act immediately to keep from losing your work";
-                this.CaptionText = "Low Battery";
-            }
-
+            string messageText = "The printer installation failed. Operation could not be completed (error 0x000043)";
+            string captionText = "Add Printer";
+            
             this.Severity = Severity.Error;
 
-            this.AddNewNotification();
+            this.AddNewNotification(captionText, messageText);
         }
 
-        private void AddNewNotification()
+        private void AddNewNotification(string caption, string message)
         {
             var notificationProvider = IoC.Get<IUserNotificationProvider>();
+
+            if (string.IsNullOrWhiteSpace(MessageText))
+            {
+                this.MessageText = message;
+                this.CaptionText = caption;
+            }
 
             var userNotification = new UserNotification()
             {
@@ -84,6 +79,9 @@ namespace NotificationCollector.ViewModels
             };
 
             notificationProvider.AddUserNotifcation(userNotification);
+
+            this.MessageText = string.Empty;
+            this.CaptionText = string.Empty;
         }
     }
 }
