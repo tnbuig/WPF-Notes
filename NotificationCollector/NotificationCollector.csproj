@@ -73,7 +73,6 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Services\IUserNotificationProvider.cs" />
     <Compile Include="Services\UserNotificationProvider.cs" />
-    <Compile Include="Utilities\ListToVisibilityConverter.cs" />
     <Compile Include="Utilities\IntToVisibilityConverter.cs" />
     <Compile Include="Utilities\SeverityToColorConverter.cs" />
     <Compile Include="ViewModels\CustomMessageBoxViewModel.cs" />

@@ -8,9 +8,8 @@
     <utils:SeverityToImageSourceConverter x:Key="SeverityToImageSourceConverter" />
     <utils:SeverityToColorConverter x:Key="SeverityToColorConverter" />
     <utils:IntToVisibilityConverter x:Key="IntToVisibilityConverter" />
-    <utils:ListToVisibilityConverter x:Key="ListToVisibilityConverter" />
     <!--#region Converters-->
-    
+
     <!--#region Styles-->
 
     <Style x:Key="NotificaitonCaptionTextBlockStyle" TargetType="TextBlock">

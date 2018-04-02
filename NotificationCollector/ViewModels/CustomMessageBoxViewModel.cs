@@ -8,8 +8,6 @@ namespace NotificationCollector.ViewModels
 {
     public class CustomMessageBoxViewModel : Screen
     {
-        private IUserNotificationProvider userNotificationProvider;
-
         public ObservableCollection<UserNotification> UserNotifications { get; set; }
 
         public void AddUserNotification(UserNotification userNotification)
@@ -60,9 +58,8 @@ namespace NotificationCollector.ViewModels
             this.TryClose();
         }
 
-        public CustomMessageBoxViewModel(IUserNotificationProvider userNotificationProvider)
+        public CustomMessageBoxViewModel()
         {
-            this.userNotificationProvider = userNotificationProvider;
             UserNotifications = new ObservableCollection<UserNotification>();
         }
 
