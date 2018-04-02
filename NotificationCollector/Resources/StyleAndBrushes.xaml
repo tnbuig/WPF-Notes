@@ -5,16 +5,12 @@
     xmlns:utils="clr-namespace:NotificationCollector.Utilities">
 
     <!--#region Converters-->
-    <utils:IconToImageSourceConverter x:Key="IconToImageSourceConverter" />
+    <utils:SeverityToImageSourceConverter x:Key="SeverityToImageSourceConverter" />
+    <utils:SeverityToColorConverter x:Key="SeverityToColorConverter" />
     <utils:IntToVisibilityConverter x:Key="IntToVisibilityConverter" />
+    <utils:ListToVisibilityConverter x:Key="ListToVisibilityConverter" />
     <!--#region Converters-->
-
-    <!--#region Brushes-->
-    <SolidColorBrush x:Key="InformationColor" Color="#3E66CD" />
-    <SolidColorBrush x:Key="WarningColor" Color="#EFC500" />
-    <SolidColorBrush x:Key="ErrorColor" Color="#B20808" />
-    <!--  #end region Brushes  -->
-
+    
     <!--#region Styles-->
 
     <Style x:Key="NotificaitonCaptionTextBlockStyle" TargetType="TextBlock">
@@ -36,7 +32,7 @@
                                     Grid.Column="0"
                                     Height="15"
                                     Margin="2,0,2,0"
-                                    Source="{Binding Source={x:Static draw:SystemIcons.Error}, Converter={StaticResource IconToImageSourceConverter}, Mode=OneWay}" />
+                                    Source="{Binding Source={x:Static draw:SystemIcons.Error}, Converter={StaticResource SeverityToImageSourceConverter}, Mode=OneWay}" />
                                 <TextBlock Margin="2,0,2,0" Text="{Binding WarningCount}" />
                             </StackPanel>
                         </Border>
@@ -48,5 +44,72 @@
     </Style>
 
     <!--  #end region Styles  -->
+
+    <!--#region NotificationTemplates-->
+    <DataTemplate x:Key="DefaultNotificationTemplate" DataType="x:Type model:UserNotification">
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="0"
+                VerticalAlignment="Top"
+                Source="{Binding Severity, Converter={StaticResource SeverityToImageSourceConverter}, Mode=OneWay}" />
+            <Grid Grid.Column="1" Margin="10,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Margin="0,0,0,5"
+                    Foreground="{Binding Severity, Converter={StaticResource SeverityToColorConverter}}"
+                    Style="{StaticResource NotificaitonCaptionTextBlockStyle}"
+                    Text="{Binding Caption}" />
+                <TextBlock
+                    Grid.Row="1"
+                    Text="{Binding Message}"
+                    TextWrapping="Wrap" />
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CustomNotificationTemplate" DataType="x:Type model:UserNotification">
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="0"
+                VerticalAlignment="Top"
+                Source="{Binding Severity, Converter={StaticResource SeverityToImageSourceConverter}, Mode=OneWay}" />
+            <Grid Grid.Column="1" Margin="10,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Margin="0,0,0,5"
+                    Foreground="{Binding Severity, Converter={StaticResource SeverityToColorConverter}}"
+                    Style="{StaticResource NotificaitonCaptionTextBlockStyle}"
+                    Text="{Binding Caption}" />
+                <TextBlock
+                    Grid.Row="1"
+                    Text="{Binding Message}"
+                    TextWrapping="Wrap" />
+            </Grid>
+            <Border
+                Grid.Column="2"
+                Width="2"
+                Margin="4,0,4,0"
+                Background="{Binding Severity, Converter={StaticResource SeverityToColorConverter}}" />
+        </Grid>
+    </DataTemplate>
+    <!--  #end region NotificationTemplates  -->
 
 </ResourceDictionary>

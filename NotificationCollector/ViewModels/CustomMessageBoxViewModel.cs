@@ -1,9 +1,7 @@
 ﻿using Caliburn.Micro;
 using NotificationCollector.Model;
 using NotificationCollector.Services;
-using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 
 namespace NotificationCollector.ViewModels
@@ -32,7 +30,7 @@ namespace NotificationCollector.ViewModels
             set
             {
                 _infoCount = value;
-                NotifyOfPropertyChange(()=>InfoCount);
+                NotifyOfPropertyChange(() => InfoCount);
             }
         }
 
@@ -56,11 +54,16 @@ namespace NotificationCollector.ViewModels
             }
         }
 
+        public void Close()
+        {
+            this.UserNotifications.Clear();
+            this.TryClose();
+        }
+
         public CustomMessageBoxViewModel(IUserNotificationProvider userNotificationProvider)
         {
             this.userNotificationProvider = userNotificationProvider;
             UserNotifications = new ObservableCollection<UserNotification>();
-            
         }
 
         protected override void OnDeactivate(bool close)
@@ -79,7 +82,6 @@ namespace NotificationCollector.ViewModels
             WarnCount = UserNotifications.Where(u => u.Severity == Severity.Warning).Count();
             ErrorCount = UserNotifications.Where(u => u.Severity == Severity.Error).Count();
             MainCaption = UserNotifications.First().Caption;
-            
         }
     }
 }

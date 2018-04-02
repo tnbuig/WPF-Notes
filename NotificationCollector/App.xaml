@@ -7,7 +7,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/StyleAndBrushes.xaml" />
-                <ResourceDictionary Source="/Resources/TemplateSelectors.xaml" />
                 <ResourceDictionary>
                     <local:Bootstrapper x:Key="bootstrapper" />
                 </ResourceDictionary>

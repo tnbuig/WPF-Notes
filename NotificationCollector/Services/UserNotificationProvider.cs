@@ -20,10 +20,10 @@ namespace NotificationCollector.Services
         {
             var windowsManager = IoC.Get<IWindowManager>();
             var customMessageBoxViewModel = IoC.Get<CustomMessageBoxViewModel>();
+            customMessageBoxViewModel.AddUserNotification(userNotification);
             
             if (!customMessageBoxViewModel.IsActive)
             {
-                customMessageBoxViewModel.UserNotifications.Clear();
                 if (!userNotification.Blocking)
                 {
                     windowsManager.ShowWindow(customMessageBoxViewModel);
@@ -34,8 +34,6 @@ namespace NotificationCollector.Services
                 }
             }
 
-            customMessageBoxViewModel.AddUserNotification(userNotification);
-            
             return customMessageBoxViewModel.UserNotifications.Count;
         }
     }

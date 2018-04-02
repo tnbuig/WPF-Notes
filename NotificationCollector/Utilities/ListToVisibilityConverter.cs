@@ -1,25 +1,21 @@
 ﻿using System;
-using System.Drawing;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
-using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace NotificationCollector.Utilities
 {
-    public class IconToImageSourceConverter : IValueConverter
+    public class ListToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var icon = value as Icon;
+            if (value is IList<object> list)
+            {
+                return list != null && list.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
+            }
 
-            ImageSource imageSource = Imaging.CreateBitmapSourceFromHIcon(
-                icon.Handle,
-                Int32Rect.Empty,
-                BitmapSizeOptions.FromEmptyOptions());
-            return imageSource;
+            return Visibility.Hidden;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
