@@ -1,2 +1,2 @@
 # WPF-Notes
-See readme file in the folders
+See readme files in the folders
